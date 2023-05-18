@@ -10,20 +10,22 @@ const Card = (props) => {
   var poster="https://via.placeholder.com/210x295?text=No+Image";
   // No Image by default
 
-  if(data.hasOwnProperty("image"))
-  {
-    try{
-        poster = data.image.original;
-    }
-    catch(e){
-      try{
-        poster = data.image.medium;
-      }
-      catch(e1){
-        console.log(e1);
-      }
-    }
-  }
+
+
+  // if(data.hasOwnProperty("image"))
+  // {
+  //   try{
+  //       poster = data.image.original;
+  //   }
+  //   catch(e){
+  //     try{
+  //       poster = data.image.medium;
+  //     }
+  //     catch(e1){
+  //       console.log(e1);
+  //     }
+  //   }
+  // }
   
   const premiered = data.premiered;
   const timeForShow = data.schedule.time;
@@ -32,7 +34,7 @@ const Card = (props) => {
         <div className='container'>
 
           <div className='image'>
-            <img src={poster} alt='poster'></img>
+            <img src={data?.image?.original ?? poster} alt='poster'></img>
           </div>
 
           <div className='text'>
